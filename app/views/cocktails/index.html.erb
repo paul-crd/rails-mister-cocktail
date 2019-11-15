@@ -1,6 +1,12 @@
-<h1>List of Cocktails</h1>
-<% @cocktails.each do |cocktail| %>
-  <h2><%= cocktail.name %> <%= link_to "view", cocktail_path(cocktail) %></h2>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.rhumeriedechamarel.com/wp-content/uploads/2015/10/SPECIALS_banner.jpg);">
+    <h1>Mister Cocktail</h1>
+</div>
 
-<% end %>
-<p><%= link_to "add a new cocktail", new_cocktail_path %></p>
+<div class="container cards">
+    <% @cocktails.each do |cocktail| %>
+  <div class="card-category">
+  <h2> <%= link_to cocktail.name, cocktail_path(cocktail) %> </h2>
+  </div>
+  <% end %>
+</div>
+
