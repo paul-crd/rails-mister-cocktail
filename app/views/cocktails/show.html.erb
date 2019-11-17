@@ -4,12 +4,14 @@
 
 <div class="container mt-4">
   <h2>Ingredients in <%=@cocktail.name%></h2>
+  <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
   <% @cocktail.doses.each do |dose| %>
   <p><%= "#{dose.ingredient.name} : #{dose.description} " %>
   <%= link_to 'delete', dose_path(dose),
       method: :delete,
       data: { confirm: "Are you sure?" } %>
    <% end %> </p>
+
 
   <p> <%= link_to 'back to all cocktails', cocktails_path, class: "btn btn-flat-2" %>  </p>
   <p> <%= link_to 'add an ingredient', new_cocktail_dose_path(@cocktail), class: "btn btn-flat-2" %> </p>
